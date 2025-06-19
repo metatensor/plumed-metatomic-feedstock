@@ -4,7 +4,7 @@
 {% set version = "2.10.0.dev0" %}
 {% set git_rev = "00b1cc034c3c66d9d18436518e2b1b11d6266843" %}
 
-{% set build = 0 %}
+{% set build = 1 %}
 
 # Use a higher build number for prefered variants, to ensure that they are
 # picked first by conda's solver.
@@ -63,6 +63,7 @@ requirements:
   run:
     - {{ mpi }}  # [mpi != "nompi"]
     - llvm-openmp  # [osx]
+    - libtorch
     - libmetatomic-torch >=0.1.2,<0.2.0
     - libmetatensor-torch >=0.7.6,<0.8.0
     - libmetatensor >=0.1.14,<0.2.0
