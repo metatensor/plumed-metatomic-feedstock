@@ -1,8 +1,8 @@
 {% set name = "plumed-metatomic" %}
 
 # update the dev suffix whenever the git_rev changes
-{% set version = "2.10.0.dev1" %}
-{% set git_rev = "8011a234e31765e405d1f07c98be0dda4326aa1e" %}
+{% set version = "2.10.0" %}
+# {% set git_rev = "8011a234e31765e405d1f07c98be0dda4326aa1e" %}
 
 {% set build = 0 %}
 
@@ -23,14 +23,18 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/plumed/plumed2.git
-  git_rev: {{ git_rev }}
-  depth: 1
+  # git_url: https://github.com/plumed/plumed2.git
+  # git_rev: {{ git_rev }}
+  # depth: 1
+  url: https://github.com/plumed/plumed2/releases/download/v{{ version }}/plumed-src-{{ version }}.tgz
+  sha256: a47791bb0178599743be55416679820bdf0afe7be565644ae98fc23749dee945
+
 
 build:
   number: {{ build }}
   skip: true  # [win]
-  string: {{ mpi_prefix }}_h{{ PKG_HASH }}_git.{{ git_rev[:7] }}_{{ build }}
+  # string: {{ mpi_prefix }}_h{{ PKG_HASH }}_git.{{ git_rev[:7] }}_{{ build }}
+  string: {{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}
 
   # Most programs should link libplumedWrapper.a so that libplumedKernel.so will
   # be loaded with dlopen. There is no need for pinning thus. Programs linking
@@ -60,13 +64,13 @@ requirements:
     # always build against the CPU version of libtorch, we can still pick the
     # cuda one at runtime
     - libtorch * cpu*
+    - libtorch
   run:
     - {{ mpi }}  # [mpi != "nompi"]
     - llvm-openmp  # [osx]
-    - libtorch
-    - libmetatomic-torch >=0.1.2,<0.2.0
-    - libmetatensor-torch >=0.7.6,<0.8.0
-    - libmetatensor >=0.1.14,<0.2.0
+    - libmetatomic-torch >=0.1.5,<0.2.0
+    - libmetatensor-torch >=0.8.0,<0.9.0
+    - libmetatensor >=0.1.17,<0.2.0
 
 test:
   commands:
