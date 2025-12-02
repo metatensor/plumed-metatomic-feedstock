@@ -23,7 +23,7 @@ export CPPFLAGS="-D__PLUMED_DEFAULT_KERNEL=$PREFIX/lib/libplumedKernel$SHLIB_EXT
 export CPPFLAGS="-I$PREFIX/include/torch/csrc/api/include $CPPFLAGS"
 
 # enable optimization
-export CXXFLAGS="${CXXFLAGS//-O2/-O3}"
+export CXXFLAGS="${CXXFLAGS//-O2/-O3} -std=c++17"
 
 # libraries are explicitly listed here due to --disable-libsearch
 export LIBS="-lfftw3 -lgsl -lgslcblas -llapack -lblas -lz $LIBS"
