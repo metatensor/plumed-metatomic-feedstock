@@ -1,9 +1,8 @@
-migrator_ts: 1764149285
 __migrator:
   kind: version
   migration_number: 1
   bump_number: 1
 libtorch:
-- '2.9'
+- '2.10'
 pytorch:
-- '2.9'
+- '2.10'
