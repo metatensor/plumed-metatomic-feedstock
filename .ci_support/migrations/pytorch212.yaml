@@ -3,6 +3,6 @@ __migrator:
   migration_number: 1
   bump_number: 1
 libtorch:
-- '2.10'
+- '2.12'
 pytorch:
-- '2.10'
+- '2.12'
