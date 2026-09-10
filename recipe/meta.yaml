@@ -4,7 +4,7 @@
 {% set version = "2.10.1.dev1" %}
 {% set git_rev = "09264719e708e8cf26ad9f2b9ec49cddd5650c14" %}
 
-{% set build = 2 %}
+{% set build = 3 %}
 
 # Use a higher build number for prefered variants, to ensure that they are
 # picked first by conda's solver.

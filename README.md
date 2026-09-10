@@ -49,31 +49,73 @@ conda config --add channels metatensor
 conda config --set channel_priority strict
 ```
 
-Once the `metatensor` channel has been enabled, `plumed-metatomic` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install plumed-metatomic
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install plumed-metatomic
 ```
 
-It is possible to list all of the versions of `plumed-metatomic` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add plumed-metatomic
+# for installing globally
+pixi global install plumed-metatomic
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `plumed-metatomic` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search plumed-metatomic --channel metatensor
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search plumed-metatomic --channel metatensor
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search plumed-metatomic --channel metatensor
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -85,6 +127,8 @@ mamba repoquery whoneeds plumed-metatomic --channel metatensor
 # List dependencies of `plumed-metatomic`:
 mamba repoquery depends plumed-metatomic --channel metatensor
 ```
+
+</details>
 
 
 
